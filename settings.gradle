@@ -1,0 +1,18 @@
+rootProject.name = "Mirror"
+
+include ':app'
+
+include ':analytics'
+
+include ':domain'
+
+include ':data:sources:remote'
+include ':data:sources:local'
+include ':data:repository'
+include ':core:data'
+
+include ':core:presentation'
+include ':features:entriesList'
+include ':features:statistics'
+include ':features:settings'
+include ':features:quotes'

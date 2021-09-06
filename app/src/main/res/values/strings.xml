@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mirror</string>
+    <string name="nav_bar_entries_title">Entries</string>
+    <string name="nav_bar_stats_title">Stats</string>
+    <string name="nav_bar_quotes_title">Quotes</string>
+    <string name="nav_bar_settings_title">More</string>
+    <string name="nav_bar_add_entry_title">Add entry</string>
+</resources>

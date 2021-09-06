@@ -1,0 +1,87 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.plugin.parcelize'
+}
+
+android {
+    compileSdkVersion rootProject.compileSdkVer
+    buildToolsVersion rootProject.buildToolsVer
+
+    defaultConfig {
+        applicationId "com.furianrt.mirror"
+        minSdkVersion rootProject.minSdkVer
+        targetSdkVersion rootProject.targetSdkVer
+        versionCode VERSION_CODE.toInteger()
+        versionName VERSION_NAME
+        resConfigs "en"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            resValue("bool", "FIREBASE_ANALYTICS_DEACTIVATED", "false")
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            versionNameSuffix "-debug"
+            resValue("bool", "FIREBASE_ANALYTICS_DEACTIVATED", "true")
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+    sourceSets {
+        getByName("main") {
+            java.srcDir("src/main/kotlin")
+        }
+        getByName("test") {
+            java.srcDir("src/test/kotlin")
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation project(':features:entriesList')
+    implementation project(':features:statistics')
+    implementation project(':features:settings')
+    implementation project(':features:quotes')
+    implementation project(':core:presentation')
+    implementation project(':domain')
+    implementation project(':data:repository')
+    implementation project(':data:sources:local')
+    implementation project(':data:sources:remote')
+
+    implementation rootProject.corrutines
+    implementation rootProject.fragment
+    implementation rootProject.core_ktx
+    implementation rootProject.appcompat
+    implementation rootProject.material
+    implementation rootProject.constraintlayout
+
+    implementation rootProject.hilt
+    implementation rootProject.hilt_lc_viewmodel
+    kapt rootProject.hilt_lc_compiler
+    kapt rootProject.hilt_compiler
+
+    implementation rootProject.lc_viewmodel
+    implementation rootProject.lc_viewmodel_st
+    implementation rootProject.lc_common
+    implementation rootProject.lc_process
+    implementation rootProject.lc_runtime
+
+    testImplementation rootProject.junit
+}

@@ -1,0 +1,17 @@
+<resources>
+
+    <style name="NavBarButtonStyle" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="tint">@color/selector_bottom_tab_color</item>
+        <item name="background">@android:color/transparent</item>
+    </style>
+
+    <style name="RootFabStyle">
+        <item name="elevation">0dp</item>
+        <item name="rippleColor">@color/white_opacity_15</item>
+        <item name="maxLines">1</item>
+        <item name="tint">@color/white</item>
+        <item name="android:ellipsize">end</item>
+        <item name="drawableTint">@color/selector_bottom_tab_color</item>
+        <item name="android:textColor">@color/selector_bottom_tab_color</item>
+    </style>
+</resources>

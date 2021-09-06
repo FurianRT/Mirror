@@ -1,0 +1,63 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'org.jetbrains.kotlin.plugin.parcelize'
+}
+
+android {
+    compileSdkVersion compileSdkVer
+    buildToolsVersion buildToolsVer
+
+    defaultConfig {
+        minSdkVersion minSdkVer
+        targetSdkVersion targetSdkVer
+    }
+
+     compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+    sourceSets {
+        getByName("main") {
+            java.srcDir("src/main/kotlin")
+        }
+        getByName("test") {
+            java.srcDir("src/test/kotlin")
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation project(':core:presentation')
+    implementation project(':domain')
+    implementation project(':analytics')
+
+    implementation rootProject.corrutines
+    implementation rootProject.fragment
+    implementation rootProject.core_ktx
+    implementation rootProject.appcompat
+    implementation rootProject.material
+    implementation rootProject.constraintlayout
+
+    implementation rootProject.hilt
+    implementation rootProject.hilt_lc_viewmodel
+    kapt rootProject.hilt_lc_compiler
+    kapt rootProject.hilt_compiler
+
+    implementation rootProject.lc_viewmodel
+    implementation rootProject.lc_viewmodel_st
+    implementation rootProject.lc_common
+    implementation rootProject.lc_process
+    implementation rootProject.lc_runtime
+
+    implementation rootProject.junit
+}
